@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f78384d2bcc946ecb5511a393376727a" Name="Diagram1">
+        <EntityTypeShape EntityType="Project_63134085Model.sysdiagram" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63134085Model.tAnhSP" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63134085Model.tChatLieu" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63134085Model.tChiTietGioHang" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63134085Model.tChiTietHDB" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63134085Model.tDanhMucSP" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63134085Model.tGioHang" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63134085Model.tHangSX" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63134085Model.tHoaDonBan" Width="1.5" PointX="6" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63134085Model.tKhachHang" Width="1.5" PointX="0.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63134085Model.tLoaiDT" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63134085Model.tLoaiSP" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63134085Model.tNhanVien" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_63134085Model.tQuocGia" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <AssociationConnector Association="Project_63134085Model.FK_tAnhSP_tDanhMucSP" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_63134085Model.FK_tDanhMucSP_tChatLieu" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_63134085Model.FK_tChiTietGioHang_tGioHang" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_63134085Model.FK_tChiTietGioHang_tSanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_63134085Model.FK_tChiTietHDB_tDanhMucSP" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_63134085Model.FK_tChiTietHDB_tHoaDonBan" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_63134085Model.FK_tDanhMucSP_tHangSX" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_63134085Model.FK_tDanhMucSP_tLoaiDT" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_63134085Model.FK_tDanhMucSP_tLoaiSP" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_63134085Model.FK_tDanhMucSP_tQuocGia" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_63134085Model.FK_tGioHang_tKhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_63134085Model.FK_tHoaDonBan_tKhachHang" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Project_63134085.Models.tHoaDonBan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="shoping-cart spad">    
+    <div class="container">
+        <h2>ĐƠN HÀNG</h2>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="shoping__cart__table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Mã đơn hàng</th>
+                                <th>Thời gian</th>
+                                <th>Tổng tiền</th>
+                                <th>Trạng thái</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <h5>#@item.MaHoaDon</h5>
+                                    </td>
+                                    <td>
+                                        @item.NgayHoaDon.Value.ToString("dd/MM/yyyy hh:mm:ss")
+                                    </td>
+                                    <td>
+                                        @string.Format("{0:#,0}", item.TongTienHD)đ
+                                    </td>
+                                    <td>
+                                        <span class="px-3 py-1">                                            
+                                            <span class="relative">@item.TrangThai</span>
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <a href="/DonHang_63134085/Details/@item.MaHoaDon">Xem chi tiết</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

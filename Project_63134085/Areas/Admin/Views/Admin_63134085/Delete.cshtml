@@ -1,0 +1,158 @@
+﻿@model Project_63134085.Models.tDanhMucSP
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Purple Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../../LayoutAdmin/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../../LayoutAdmin/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../../../LayoutAdmin/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="../../../LayoutAdmin/assets/images/favicon.ico" />
+</head>
+<body>
+    <h3>Bạn có muốn xoá sản phẩm không?</h3>
+    <div>        
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TenSP)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TenSP)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CanNang)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CanNang)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DoNoi)
+            </dt>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ThoiGianBaoHanh)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ThoiGianBaoHanh)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GioiThieuSP)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GioiThieuSP)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AnhDaiDien)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AnhDaiDien)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GiaNhoNhat)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GiaNhoNhat)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.GiaLonNhat)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.GiaLonNhat)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SoLuong)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SoLuong)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.tChatLieu.ChatLieu)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tChatLieu.ChatLieu)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.tHangSX.HangSX)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tHangSX.HangSX)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.tLoaiDT.TenLoai)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tLoaiDT.TenLoai)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.tLoaiSP.Loai)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tLoaiSP.Loai)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.tQuocGia.TenNuoc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.tQuocGia.TenNuoc)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Về trang chủ", "Index")
+            </div>
+        }
+    </div>
+    <script src="../../../LayoutAdmin/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="../../../LayoutAdmin/assets/js/off-canvas.js"></script>
+    <script src="../../../LayoutAdmin/assets/js/hoverable-collapse.js"></script>
+    <script src="../../../LayoutAdmin/assets/js/misc.js"></script>
+</body>

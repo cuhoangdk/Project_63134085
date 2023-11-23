@@ -1,0 +1,97 @@
+﻿@model Project_63134085.Models.tDanhMucSP
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutOgani.cshtml";
+}
+<style type="text/css">
+    .product__details__text h3{
+        text-transform: capitalize;
+    }
+    .line-through {
+        text-decoration: line-through;
+    }
+</style>
+<!-- Product Details Section Begin -->
+<form action="/GioHang_63134085/ThemVaoGioHang" method="post">
+    <section class="product-details spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__pic">
+                        <div class="product__details__pic__item">
+                            <img class="product__details__pic__item--large"
+                                 src="@Url.Content("../Images/"+Model.AnhDaiDien)" alt="">
+                        </div>
+                        <div class="product__details__pic__slider owl-carousel">
+                            @foreach (var image in ViewBag.anhSanPham)
+                            {
+                                <img data-imgbigurl="@Url.Content("../Images/"+image.TenFileAnh)"
+                                     src="@Url.Content("../Images/"+image.TenFileAnh)" alt="">
+                            }
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="idSP" value="@Model.MaSP" />
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__text">
+                        <h3>@Model.TenSP</h3>
+                        <span class="line-through">@string.Format("{0:#,0}", Model.GiaLonNhat)đ</span>
+                        <div class="product__details__price">@string.Format("{0:#,0}", Model.GiaNhoNhat)đ</div>
+                        <p>
+                            @Model.GioiThieuSP
+                        </p>
+                        <div><b>Số lượng</b> <span>@Model.SoLuong</span></div>
+                        <div class="product__details__quantity">
+                            <div class="quantity">
+                                <div class="pro-qty">
+                                    <input type="number" name="SoLuong" value="1" min="1" max="@Model.SoLuong">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="primary-btn" @(Model.SoLuong == 0 ? "disable" : null)> @(Model.SoLuong == 0 ? "Hết hàng": "Thêm vào giỏ")</button>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="product__details__tab">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab"
+                                   aria-selected="true">Mô tả</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab"
+                                   aria-selected="false">Thông tin</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <div class="product__details__tab__desc">
+                                    <h6>Mô tả sản phẩm</h6>
+                                    <p>
+                                        @Model.GioiThieuSP
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                <div class="product__details__tab__desc product__details__text">
+                                    <h6>Thông tin sản phẩm</h6>
+                                    <ul>
+                                        <li><b>Chất liệu</b> <span>@Model.tChatLieu.ChatLieu</span></li>                                        
+                                        <li><b>Hãng sản xuất</b> <span>@Model.tHangSX.HangSX</span></li>
+                                        <li><b>Xuât xứ </b> <span>@Model.tQuocGia.TenNuoc</span></li>
+                                        <li><b>Thời gian bảo hành</b><span>@Model.ThoiGianBaoHanh tháng</span></li>
+                                        <li><b>Độ nới</b><span>@Model.DoNoi</span></li>
+                                        <li><b>Cân nặng</b> <span>@Model.CanNang kg</span></li>
+                                        <li><b>Đối tượng</b> <span>@Model.tLoaiDT.TenLoai</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+    <!-- Product Details Section End -->

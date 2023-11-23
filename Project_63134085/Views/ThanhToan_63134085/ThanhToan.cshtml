@@ -1,0 +1,60 @@
+﻿@model Project_63134085.Models.tKhachHang
+
+@{
+    ViewBag.Title = "ThanhToan";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="checkout spad">
+    <div class="container">       
+        <h2>THANH TOÁN</h2>
+        <div class="checkout__form">
+            <h4>Chi tiết hoá đơn</h4>
+            <form action="ThanhToan" method="post">
+                <div class="row">
+                    <div class="col-lg-8 col-md-6">
+                        <div class="checkout__input">
+                            <p>Họ Tên Khách Hàng<span>*</span></p>
+                            <input type="text" value="@Model.TenKhachHang" name="Ten" required>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Điện thoại<span>*</span></p>
+                            <input type="text" placeholder="Điện thoại" value="@Model.SoDienThoai" name="DienThoai" required>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Địa chỉ<span>*</span></p>
+                            <input placeholder="Địa chỉ" value="@Model.DiaChi" name="DiaChi" required class="checkout__input__add">                            
+                        </div>                        
+                        <div class="checkout__input">
+                            <p>Ghi chú</p>
+                            <textarea name="GhiChu" style="width:100%"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="checkout__order">
+                            <h4>Đơn hàng của bạn</h4>
+                            <div class="checkout__order__products">Sản phẩm <span>Tổng tiền</span></div>
+                            <ul>
+                               @foreach (var item in ViewBag.dsSP)
+                                {          
+                                <li>
+                                    @{
+                                        var tenSanPham = item.tDanhMucSP.TenSP;
+                                        if (tenSanPham.Length > 20)
+                                        {
+                                            tenSanPham = tenSanPham.Substring(0, 17) + "...";
+                                        }
+                                    }@tenSanPham<span>@string.Format("{0:#,0}", item.Gia)đ</span>
+                                </li>
+                                }
+                            </ul>                                
+                            <div class="checkout__order__total">Tổng tiền <span>@string.Format("{0:#,0}", ViewBag.Tong)₫</span></div>
+                            <div>Thanh toán khi nhận hàng</div>
+                            <button type="submit" class="site-btn">Thanh Toán</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,153 @@
+﻿@model PagedList.IPagedList<Project_63134085.Models.tKhachHang>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style type="text/css">
+    .product__pagination,
+    .blog__pagination {
+        padding-top: 10px;
+    }
+
+        .product__pagination a,
+        .blog__pagination a {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #b2b2b2;
+            font-size: 14px;
+            color: #b2b2b2;
+            font-weight: 700;
+            line-height: 28px;
+            text-align: center;
+            margin-right: 16px;
+            -webkit-transition: all, 0.3s;
+            -moz-transition: all, 0.3s;
+            -o-transition: all, 0.3s;
+            transition: all, 0.3s;
+        }
+
+            .product__pagination a:hover,
+            .blog__pagination a:hover {
+                background: #7fad39;
+                border-color: #7fad39;
+                color: #ffffff;
+            }
+
+            .product__pagination a:last-child,
+            .blog__pagination a:last-child {
+                margin-right: 0;
+            }
+</style>
+<div>
+    <main>
+        <form method="get">
+            <p>
+                <i class="fas fa-list mr-3"></i> Thống kê tháng <select name="thang" class="mx-3 px-2 py-1 text-sm bg-white border border-light" aria-label="Default select example">
+                    <option value="1" @(ViewBag.thang == 1 ? "selected" : null)>1</option>
+                    <option value="2" @(ViewBag.thang == 2 ? "selected" : null)>2</option>
+                    <option value="3" @(ViewBag.thang == 3 ? "selected" : null)>3</option>
+                    <option value="4" @(ViewBag.thang == 4 ? "selected" : null)>4</option>
+                    <option value="5" @(ViewBag.thang == 5 ? "selected" : null)>5</option>
+                    <option value="6" @(ViewBag.thang == 6 ? "selected" : null)>6</option>
+                    <option value="7" @(ViewBag.thang == 7 ? "selected" : null)>7</option>
+                    <option value="8" @(ViewBag.thang == 8 ? "selected" : null)>8</option>
+                    <option value="9" @(ViewBag.thang == 9 ? "selected" : null)>9</option>
+                    <option value="10" @(ViewBag.thang == 10 ? "selected" : null)>10</option>
+                    <option value="11" @(ViewBag.thang == 11 ? "selected" : null)>11</option>
+                    <option value="12" @(ViewBag.thang == 12 ? "selected" : null)>12</option>
+                </select>
+                <button class="text-white font-bold btn btn-primary">Xác nhận</button>
+            </p>
+        </form>
+        <div class="text-center row">
+            <div class="card card-img-holder bg-gradient-danger text-white mx-3 mb-3 col-3">
+                <div class="card-body">
+                    <img src="../../../LayoutAdmin/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image">
+                    <h2 class="card-title">TỔNG DOANH THU</h2>
+                    <p class="card-text" style="font-size: 2rem;">@string.Format("{0:#,0}", ViewBag.tk.tongDoanhThu)đ</p>
+                </div>
+            </div>
+            <div class="card card-img-holder text-white bg-gradient-info mx-3 mb-3 col-4">
+                <div class="card-body">
+                    <img src="../../../LayoutAdmin/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image">
+                    <h2 class="card-title">TỔNG SỐ NGƯỜI DÙNG</h2>
+                    <p class="card-text" style="font-size: 2rem;">@ViewBag.tk.tongNguoiDung</p>
+                </div>
+            </div>
+            <div class="card card-img-holder text-white bg-gradient-success mx-3 mb-3 col-3">
+                <img src="../../../LayoutAdmin/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image">
+                <div class="card-body">
+                    <h2 class="card-title">TỔNG ĐƠN HÀNG</h2>
+                    <p class="card-text" style="font-size: 2rem;">@ViewBag.tk.tongDonHang</p>
+                </div>
+            </div>
+            <div class="card card-img-holder text-white bg-gradient-warning mx-3 mb-3 col-5">
+                <img src="../../../LayoutAdmin/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image">
+                <div class="card-body">
+                    <h2 class="card-title">Đơn Hàng Giao Thành Công</h2>
+                    <p class="card-text" style="font-size: 2rem;">@ViewBag.tk.tongDonHangDaGiao</p>
+                </div>
+            </div>
+            <div class="card card-img-holder text-white bg-gradient-secondary mx-3 mb-3 col-5">
+                <img src="../../../LayoutAdmin/assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image">
+                <div class="card-body">
+                    <h2 class="card-title">Đơn Hàng Giao Không Thành Công</h2>
+                    <p class="card-text" style="font-size: 2rem;">@ViewBag.tk.tongDonHangGiaoKhongThanhCong</p>
+                </div>
+            </div>
+        </div>
+        <div class="px-4 py-4 bg-white">
+            <h2>
+                Danh sách khách hàng
+            </h2>
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr class="table-warning">
+                            <th class="py-3 px-4 font-semibold text-sm">ID</th>
+                            <th class="py-3 px-4 font-semibold text-sm">Tên Khách hàng</th>
+                            <th class="py-3 px-4 font-semibold text-sm">Tài khoản</th>
+                            <th class="py-3 px-4 font-semibold text-sm">Ngày sinh</th>
+                            <th class="py-3 px-4 font-semibold text-sm">Địa chỉ</th>
+                            <th class="py-3 px-4 font-semibold text-sm">Số điện thoại</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var index = 1;
+                        }
+                        @foreach (var item in Model)
+                        {
+                            <tr class="@(index % 2 == 0 ? "table-primary" : null)">
+                                <td class="py-3 px-4">#@item.MaKhanhHang</td>
+
+                                <td class="py-3 px-4">@item.TenKhachHang</td>
+                                <td class="py-3 px-4">@item.username </td>
+                                <td class="py-3 px-4">
+                                    @{
+                                        if (item.NgaySinh != null)
+                                        {
+                                            @item.NgaySinh.Value.ToShortDateString()
+                                        }
+                                        else
+                                        {
+                                            @("---")
+                                        }
+                                    }
+                                </td>
+                                <td class="py-3 px-4">@(item.DiaChi ?? "---")</td>
+                                <td class="py-3 px-4"><a class="hover:text-blue-500" href="tel:@(item.SoDienThoai ?? "")">@(item.SoDienThoai ?? "---")</a></td>
+                            </tr>
+                            index++;
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</div>
+<div class="product__pagination">
+    @Html.PagedListPager(Model, page => Url.Action("Dashboard", new { page = page }))
+</div>

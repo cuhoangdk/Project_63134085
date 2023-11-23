@@ -1,0 +1,43 @@
+﻿<!-- Hero Section Begin -->
+<section class="hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="hero__categories">
+                    <div class="hero__categories__all">
+                        <i class="fa fa-bars"></i>
+                        <span>Loại sản phẩm</span>
+                    </div>
+                    <ul style="display:none">
+                        @foreach (var item in ViewBag.Loai)
+                        {                            
+                            <li>
+                            <a href="@Url.Action("SanPhamTheoLoai", "tDanhMucSPs_63134085", new { maloai = item.MaLoai })">@item.Loai</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="hero__search">
+                    <div class="hero__search__form">
+                        <form action="/tDanhMucSPs_63134085/TimKiem" method="get">                                                                              
+                            <input type="text" name="TuKhoa" placeholder="Bạn muốn tìm sản phẩm gì?">
+                            <button type="submit" class="site-btn">TÌM KIẾM</button>
+                        </form>
+                    </div>
+                    <div class="hero__search__phone">
+                        <div class="hero__search__phone__icon">
+                            <i class="fa fa-phone"></i>
+                        </div>
+                        <div class="hero__search__phone__text">
+                            <h5>1800 6198</h5>
+                            <span>Hỗ trợ 24/7</span>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->

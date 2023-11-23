@@ -1,0 +1,282 @@
+﻿@model Project_63134085.Models.tHoaDonBan
+
+@{
+    ViewBag.Title = "Details";
+    Layout = null;
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shop Vali Ogani</title>    
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="../../1LayoutOgani/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../../1LayoutOgani/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="../../1LayoutOgani/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="../../1LayoutOgani/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="../../1LayoutOgani/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="../../1LayoutOgani/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="../../1LayoutOgani/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="../../1LayoutOgani/css/style.css" type="text/css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Humberger Begin -->
+    <div class="humberger__menu__overlay"></div>
+    <div class="humberger__menu__wrapper">
+        <div class="humberger__menu__logo">
+            <a href="#"><img src="../../1LayoutOgani/img/logo.png" alt=""></a>
+        </div>
+        <div class="humberger__menu__cart">
+            <ul>
+                <li><a href="/GioHang_63134085/Index"><i class="fa fa-shopping-bag"></i></a></li>
+            </ul>
+        </div>
+        <div class="humberger__menu__widget">
+            <div class="header__top__right__language">
+            </div>
+            <div class="header__top__right__auth">
+                @{
+                    if (Session["Fullname"] == null)
+                    {
+                        <div><a href="/accessuser_63134085/login">Đăng Nhập</a></div>
+                        <div><a href="/accessuser_63134085/register">Đăng Ký</a></div>
+                    }
+                    if (Session["Fullname"] != null)
+                    {
+                        <div>@Session["Fullname"].ToString()</div>
+                        <div><a href="/accessuser_63134085/logout">Đăng Xuất</a></div>
+                    }
+                }
+            </div>
+        </div>
+        <nav class="humberger__menu__nav mobile-menu">
+            <ul>
+                <li class="active">@Html.ActionLink("TRANG CHỦ", "../tDanhMucSPs_63134085/Index", new { @class = "a" })</li>                
+                <li>
+                    <a href="#">Pages</a>
+                    <ul class="header__menu__dropdown">
+                        <li><a href="/GioHang_63134085/Index">Giỏ hàng</a></li>
+                        <li><a href="/DonHang_63134085/Index">Đơn hàng</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+        <div class="header__top__right__social">
+        </div>
+        <div class="humberger__menu__contact">
+            <ul>
+                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Humberger End -->
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__left">
+                            <ul>
+                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__right">
+                            <div class="header__top__right__auth">
+                                @{
+                                    if (Session["Fullname"] == null)
+                                    {
+                                        <div><a href="/accessuser_63134085/login">Đăng Nhập</a></div>
+                                        <div><a href="/accessuser_63134085/register">Đăng Ký</a></div>
+                                    }
+                                    if (Session["Fullname"] != null)
+                                    {
+                                        <div>@Session["Fullname"].ToString()</div>
+                                        <div><a href="/accessuser_63134085/logout">Đăng Xuất</a></div>
+                                    }
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="@Url.Action("Index","tDanhMucSPs_63134085")"><img src="../../1LayoutOgani/img/logo.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="header__menu">
+                        <ul>
+                            <li class="active">@Html.ActionLink("TRANG CHỦ", "../tDanhMucSPs_63134085/Index", new { @class = "a" })</li>                            
+                            <li>
+                                <a href="#">Pages</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="/GioHang_63134085/Index">Giỏ hàng</a></li>
+                                    <li><a href="/DonHang_63134085/Index">Đơn hàng</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3">
+                    <div class="header__cart">
+                        <ul>
+                            <li><a href="/GioHang_63134085/Index"><i class="fa fa-shopping-bag"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+    <div class="container">
+        <div class="d-flex justify-content-between pb-4">
+            <div>
+                <h2 class="text-gray-600 font-weight-bold fs-5">
+                    Chi tiết đơn mua #@Model.MaHoaDon
+                </h2>
+            </div>
+        </div>
+        <div class="row g-4 p-4 border rounded">
+            <div class="col">
+                <p class="text-18 font-weight-bold">Mã đơn mua</p>
+                <span>#@Model.MaHoaDon</span>
+            </div>
+            <div class="col">
+                <p class="text-18 font-weight-bold">Ngày tạo đơn</p>
+                <span>@Model.NgayHoaDon.Value.ToString("dd/MM/yyyy")</span>
+            </div>
+            <div class="col">
+                <p class="text-18 font-weight-bold">Trạng thái</p>
+                <span>@Model.TrangThai</span>
+            </div>
+        </div>
+        <section class="shoping-cart spad">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="shoping__cart__table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="shoping__product">Sản phẩm</th>
+                                        <th>Giá</th>
+                                        <th>Số lượng</th>
+                                        <th>Tổng</th>                                        
+                                    </tr>
+                                </thead>
+                                @{
+                                    Project_63134085.Models.mapDonHang_63134085 map = new Project_63134085.Models.mapDonHang_63134085();
+                                    var ds = map.GetChiTietHDBs(Model.MaHoaDon);
+                                }
+                                <tbody>
+                                    @foreach (var item in ds)
+                                    {
+                                        <tr>
+                                            <td class="shoping__cart__item">
+                                                <img src="@Url.Content("../Images/"+item.tDanhMucSP.AnhDaiDien)" style="max-width:100px" alt="">
+                                                <h5>@item.tDanhMucSP.TenSP</h5>
+                                            </td>
+                                            <td class="shoping__cart__price">
+                                                @string.Format("{0:#,0}", item.tDanhMucSP.GiaNhoNhat)đ
+                                            </td>
+                                            <td class="shoping__cart__quantity">                                                
+                                                @item.SoLuongBan                                               
+                                            </td>
+                                            <td class="shoping__cart__total">
+                                                @string.Format("{0:#,0}", item.tDanhMucSP.GiaNhoNhat * item.SoLuongBan)
+                                            </td>                                            
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>                
+                <div class="row">                        
+                    <div class="col-lg-6">
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="shoping__checkout">
+                            <h5>Hoá đơn</h5>
+                            <ul>
+                                <li>Tổng <span>@string.Format("{0:#,0}", Model.TongTienHD)đ</span></li>
+                            </ul>                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Footer Section Begin -->
+    <footer class="footer spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__about__logo">
+                            <a href="./index.html"><img src="../../1LayoutOgani/img/logo.png" alt=""></a>
+                        </div>
+                        <ul>
+                            <li>Địa chỉ: 117-119 Bạch Đằng, Phường 15, Quận Bình Thạnh, TP. Hồ Chí Minh, Việt Nam</li>
+                            <li>Điện thoại: 1800 6198</li>
+                            <li>Email: hello@colorlib.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="footer__widget">
+                        <h6>Link hữu ích</h6>
+                        <ul>
+                            <li><a href="#">Về chúng tôi</a></li>
+                            <li><a href="#">Về cửa hàng của chúng tôi</a></li>
+                            <li><a href="#">Mua sắm an toàn</a></li>
+                            <li><a href="#">Thông tin giao hàng</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
+
+                        </ul>
+                        <ul>
+                            <li><a href="#">Chúng tôi là ai</a></li>
+                            <li><a href="#">Dịch vụ</a></li>
+                            <li><a href="#">Dự án</a></li>
+                            <li><a href="#">Liên hệ</a></li>
+                            <li><a href="#">Lời chứng thực</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+    <!-- Js Plugins -->
+    <script src="../../1LayoutOgani/js/jquery-3.3.1.min.js"></script>
+    <script src="../../1LayoutOgani/js/bootstrap.min.js"></script>
+    <script src="../../1LayoutOgani/js/jquery.nice-select.min.js"></script>
+    <script src="../../1LayoutOgani/js/jquery-ui.min.js"></script>
+    <script src="../../1LayoutOgani/js/jquery.slicknav.js"></script>
+    <script src="../../1LayoutOgani/js/mixitup.min.js"></script>
+    <script src="../../1LayoutOgani/js/owl.carousel.min.js"></script>
+    <script src="../../1LayoutOgani/js/main.js"></script>
+</body>

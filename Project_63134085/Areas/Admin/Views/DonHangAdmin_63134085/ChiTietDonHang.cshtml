@@ -1,0 +1,119 @@
+﻿@model Project_63134085.Models.tHoaDonBan
+
+@{
+    ViewBag.Title = "ChiTietDonHang";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Purple Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../../LayoutAdmin/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../../LayoutAdmin/assets/vendors/css/vendor.bundle.base.css">    
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="../../../LayoutAdmin/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="../../../LayoutAdmin/assets/images/favicon.ico" />
+</head>
+<div class="container">
+    <div>
+        <div>
+            <h1 class="">Đơn hàng #@Model.MaHoaDon</h1>
+            <p class="">@Model.NgayHoaDon</p>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <div class="bg-white py-4 py-md-7 px-4 px-md-8 px-xl-10">
+                    <h4>Giỏ Hàng Của Khách Hàng</h4>
+                    @{
+                        Project_63134085.Models.mapDonHang_63134085 map = new Project_63134085.Models.mapDonHang_63134085();
+                        var ds = map.GetChiTietHDBs(Model.MaHoaDon);
+
+                    }
+                    <table class="table">
+                        <tr>
+                            <th>Ảnh</th>
+                            <th>Sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Số lượng</th>
+                            <th>Tổng</th>
+                        </tr>
+                        @foreach (var item in ds)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="@Url.Content("../../../Images/"+item.tDanhMucSP.AnhDaiDien)" style="max-width:100px" alt="">
+                                </td>
+                                <td>
+                                    <h4>@item.TenSP</h4>
+                                    <div>
+                                        <p><span>Loại sản phẩm: </span> @item.Loai</p>
+                                    </div>
+                                </td>
+                                <td>@string.Format("{0:#,0}", item.tDanhMucSP.GiaNhoNhat)đ</td>
+                                <td>x @item.SoLuongBan</td>
+                                <td>@string.Format("{0:#,0}", item.DonGiaBan)đ</td>
+                            </tr>
+                        }
+                    <tr>
+                        <td>Tổng</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>@(string.Format("{0:#,0}", Model.TongTienHD))đ</td>
+                    </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-3 bg-white py-4 px-4">
+                <h3>Khách Hàng</h3>                
+                <div>
+                    <div>
+                        <div class="d-flex align-items-center">
+                            <img src="https://static-00.iconduck.com/assets.00/avatar-default-symbolic-icon-2048x1949-pq9uiebg.png" width="56" height="56" alt="avatar" />
+                            <div class="px-4">
+                                <p>@Model.tKhachHang.TenKhachHang</p>
+                                <p class="text-small">#@Model.tKhachHang.MaKhanhHang</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <div>
+                                <p class="font-weight-bold">Điện Thoại</p>
+                                <p>@Model.DienThoai</p>
+                            </div>
+                            <div>
+                                <p class="font-weight-bold">Địa Chỉ Giao Hàng</p>
+                                <p>@Model.DiaChi</p>
+                            </div>
+
+                            <div>
+                                <p class="font-weight-bold">Ghi Chú Đơn Hàng</p>
+                                <p>@Model.GhiChu</p>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="/admin/donhangadmin_63134085/danhsach" class="btn btn-rounded text-dark btn-gradient-primary">Danh Sách Đơn Hàng</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+<script src="../../../LayoutAdmin/assets/vendors/js/vendor.bundle.base.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="../../../LayoutAdmin/assets/js/off-canvas.js"></script>
+<script src="../../../LayoutAdmin/assets/js/hoverable-collapse.js"></script>
+<script src="../../../LayoutAdmin/assets/js/misc.js"></script>

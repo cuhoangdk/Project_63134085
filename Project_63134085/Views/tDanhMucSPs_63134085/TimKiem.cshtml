@@ -1,0 +1,44 @@
+﻿@model PagedList.IPagedList<Project_63134085.Models.tDanhMucSP>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "TimKiem";
+    Layout = "~/Views/Shared/_LayoutOgani.cshtml";
+}
+
+<style type="text/css">
+    .featured__item__text {
+        text-transform: capitalize;
+    }
+
+    .line-through {
+        text-decoration: line-through;
+    }
+</style>
+<h2>
+    Tìm kiếm của bạn "@ViewBag.TuKhoa" tất cả kết quả:
+</h2>
+<div id="displayProducts" class="row featured__filter">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+            <div class="featured__item">
+                <div class="featured__item__pic set-bg" data-setbg="@Url.Content("../Images/"+item.AnhDaiDien)" style="background-image: url(&quot;img/featured/feature-1.jpg&quot;);">
+                    <ul class="featured__item__pic__hover">
+                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                </div>
+                <div class="featured__item__text">
+                    <h6><a href="@Url.Action("Details", new { maSp = item.MaSP })">@item.TenSP</a></h6>
+                    <span class="line-through">@string.Format("{0:#,0}", item.GiaLonNhat)đ</span>
+                    <h5>@string.Format("{0:#,0}", item.GiaNhoNhat)đ</h5>
+                </div>
+            </div>
+        </div>
+    }
+    <br />
+    <p>@ViewBag.noti</p>    
+</div>
+<br />
+<div class="product__pagination">
+    @Html.PagedListPager(Model, page => Url.Action("TimKiem", new { page, tukhoa = ViewBag.TuKhoa }))
+</div>
